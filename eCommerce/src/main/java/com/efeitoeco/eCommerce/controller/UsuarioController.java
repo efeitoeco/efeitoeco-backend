@@ -30,7 +30,7 @@ public class UsuarioController {
 		return usuarioService.logar(user).map(resp -> ResponseEntity.ok(resp))
 				.orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
 	}
-	@PostMapping("/cadastar")
+	@PostMapping("/cadastrar")
 	public ResponseEntity<Usuario> post(@RequestBody Usuario usuario){
 		return ResponseEntity.status(HttpStatus.CREATED)
 				.body(usuarioService.cadastrarUsuario(usuario));
