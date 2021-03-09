@@ -18,13 +18,15 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
 	private UserDetailsService userDetailsService;
 	
 	@Override
-	protected void configure (AuthenticationManagerBuilder auth) throws Exception{
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(userDetailsService);
 	}
+	
 	@Bean
-	public PasswordEncoder passwordEncoder(){
+	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
+	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()

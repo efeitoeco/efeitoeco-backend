@@ -8,11 +8,11 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table (name = "tb_usuario")
+@Table(name = "tb_usuario")
 public class Usuario {
 	
 	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
 	@NotNull
@@ -27,8 +27,6 @@ public class Usuario {
 	@NotNull
 	private String senha;
 	
-	
-
 	public long getId() {
 		return id;
 	}

@@ -18,12 +18,11 @@ public class UserDetailsImpl implements UserDetails {
 	
 	private List<GrantedAuthority> authorities;
 	
-	public UserDetailsImpl () { } 
+	public UserDetailsImpl() { } 
 	
 	public UserDetailsImpl(Usuario user) {
 		this.username = user.getUsuario();
 		this.password = user.getSenha();
-		
 	}
 	
 	@Override
@@ -67,7 +66,4 @@ public class UserDetailsImpl implements UserDetails {
 		// TODO Auto-generated method stub
 		return true;
 	}
-
-	
-
 }
