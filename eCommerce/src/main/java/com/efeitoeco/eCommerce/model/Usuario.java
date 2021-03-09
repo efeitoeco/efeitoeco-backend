@@ -8,22 +8,25 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table (name = "tb_usuario")
+@Table(name = "tb_usuario")
 public class Usuario {
 	
 	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
 	@NotNull
 	private String nome;
 	
 	@NotNull
+	private String usuario;
+	
+	@NotNull
 	private String email;
 	
 	@NotNull
 	private String senha;
-
+	
 	public long getId() {
 		return id;
 	}
@@ -38,6 +41,14 @@ public class Usuario {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	
+	public String getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
 	}
 
 	public String getEmail() {
@@ -55,5 +66,4 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-		
 }

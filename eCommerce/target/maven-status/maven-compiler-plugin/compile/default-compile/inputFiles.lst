@@ -1,0 +1,16 @@
+/Users/daniel/Documents/Github/efeitoeco-backend/eCommerce/src/main/java/com/efeitoeco/eCommerce/security/UserDetailsImpl.java
+/Users/daniel/Documents/Github/efeitoeco-backend/eCommerce/src/main/java/com/efeitoeco/eCommerce/service/UsuarioService.java
+/Users/daniel/Documents/Github/efeitoeco-backend/eCommerce/src/main/java/com/efeitoeco/eCommerce/controller/CategoriaController.java
+/Users/daniel/Documents/Github/efeitoeco-backend/eCommerce/src/main/java/com/efeitoeco/eCommerce/model/Categoria.java
+/Users/daniel/Documents/Github/efeitoeco-backend/eCommerce/src/main/java/com/efeitoeco/eCommerce/model/Produto.java
+/Users/daniel/Documents/Github/efeitoeco-backend/eCommerce/src/main/java/com/efeitoeco/eCommerce/repository/CategoriaRepository.java
+/Users/daniel/Documents/Github/efeitoeco-backend/eCommerce/src/main/java/com/efeitoeco/eCommerce/controller/UsuarioController.java
+/Users/daniel/Documents/Github/efeitoeco-backend/eCommerce/src/main/java/com/efeitoeco/eCommerce/repository/UsuarioRepository.java
+/Users/daniel/Documents/Github/efeitoeco-backend/eCommerce/src/main/java/com/efeitoeco/eCommerce/model/Usuario.java
+/Users/daniel/Documents/Github/efeitoeco-backend/eCommerce/src/main/java/com/efeitoeco/eCommerce/security/UserDetailsServiceImpl.java
+/Users/daniel/Documents/Github/efeitoeco-backend/eCommerce/src/main/java/com/efeitoeco/eCommerce/model/UsuarioLogin.java
+/Users/daniel/Documents/Github/efeitoeco-backend/eCommerce/src/main/java/com/efeitoeco/eCommerce/repository/ProdutoRepository.java
+/Users/daniel/Documents/Github/efeitoeco-backend/eCommerce/src/main/java/com/efeitoeco/eCommerce/config/SwaggerConfig.java
+/Users/daniel/Documents/Github/efeitoeco-backend/eCommerce/src/main/java/com/efeitoeco/eCommerce/controller/ProdutoController.java
+/Users/daniel/Documents/Github/efeitoeco-backend/eCommerce/src/main/java/com/efeitoeco/eCommerce/security/BasicSecurityConfig.java
+/Users/daniel/Documents/Github/efeitoeco-backend/eCommerce/src/main/java/com/efeitoeco/eCommerce/ECommerceApplication.java
