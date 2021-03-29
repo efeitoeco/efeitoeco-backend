@@ -4,11 +4,15 @@ public class UsuarioLogin {
 
 	private String nome;
 	
+	private String sobrenome;
+	
 	private String usuario;
 	
 	private String email;
 	
 	private String senha;
+	
+	private String foto;
 	
 	private String token;
 
@@ -18,6 +22,14 @@ public class UsuarioLogin {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public String getSobrenome() {
+		return sobrenome;
+	}
+
+	public void setSobrenome(String sobrenome) {
+		this.sobrenome = sobrenome;
 	}
 
 	public String getUsuario() {
@@ -44,6 +56,14 @@ public class UsuarioLogin {
 		this.senha = senha;
 	}
 
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+
 	public String getToken() {
 		return token;
 	}
@@ -51,4 +71,6 @@ public class UsuarioLogin {
 	public void setToken(String token) {
 		this.token = token;
 	}
+
+
 }

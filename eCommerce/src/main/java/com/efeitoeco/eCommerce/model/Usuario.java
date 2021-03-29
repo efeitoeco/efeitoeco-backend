@@ -5,10 +5,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "tb_usuario")
+@Table(
+		name = "tb_usuario",
+		uniqueConstraints = {
+	          @UniqueConstraint(columnNames = "usuario"),
+	          @UniqueConstraint(columnNames = "email")
+	        }
+)
 public class Usuario {
 	
 	@Id
@@ -19,6 +26,9 @@ public class Usuario {
 	private String nome;
 	
 	@NotNull
+	private String sobrenome;
+	
+	@NotNull
 	private String usuario;
 	
 	@NotNull
@@ -26,6 +36,8 @@ public class Usuario {
 	
 	@NotNull
 	private String senha;
+	
+	private String foto;
 	
 	public long getId() {
 		return id;
@@ -37,6 +49,14 @@ public class Usuario {
 
 	public String getNome() {
 		return nome;
+	}
+
+	public String getSobrenome() {
+		return sobrenome;
+	}
+
+	public void setSobrenome(String sobrenome) {
+		this.sobrenome = sobrenome;
 	}
 
 	public void setNome(String nome) {
@@ -66,4 +86,13 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+	
 }
