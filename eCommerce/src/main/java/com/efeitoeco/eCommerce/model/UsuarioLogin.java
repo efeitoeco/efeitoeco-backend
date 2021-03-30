@@ -5,9 +5,7 @@ public class UsuarioLogin {
 	private String nome;
 	
 	private String sobrenome;
-	
-	private String usuario;
-	
+		
 	private String email;
 	
 	private String senha;
@@ -30,14 +28,6 @@ public class UsuarioLogin {
 
 	public void setSobrenome(String sobrenome) {
 		this.sobrenome = sobrenome;
-	}
-
-	public String getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
 	}
 
 	public String getEmail() {
