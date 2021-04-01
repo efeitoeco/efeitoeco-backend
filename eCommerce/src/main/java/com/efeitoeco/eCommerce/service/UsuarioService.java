@@ -19,12 +19,25 @@ public class UsuarioService {
 	private UsuarioRepository repository;
 	
 	public Usuario cadastrarUsuario(Usuario usuario) {
+		
+		validarCadastroDuplicado(usuario);
+		
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 	
 		String senhaEncoder = encoder.encode(usuario.getSenha());
 		usuario.setSenha(senhaEncoder);
 		
 		return repository.save(usuario);
+	}
+	
+	public void validarCadastroDuplicado(Usuario usuario) {
+		
+		Optional<Usuario> usuarioOptional = repository.findByEmail(usuario.getEmail());
+		
+		if(usuarioOptional.isPresent()) {
+			throw new RuntimeException("O email " + usuario.getEmail() + " já cadastrado!");
+		}
+		
 	}
 	
 	public Optional<UsuarioLogin> logar(Optional<UsuarioLogin> user) {
