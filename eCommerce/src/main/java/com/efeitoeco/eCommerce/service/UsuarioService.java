@@ -54,6 +54,7 @@ public class UsuarioService {
 				
 				user.get().setToken(authHeader);
 				user.get().setNome(usuario.get().getNome());
+				user.get().setId(usuario.get().getId());
 				user.get().setSobrenome(usuario.get().getSobrenome());
 				user.get().setEmail(usuario.get().getEmail());
 				user.get().setSenha(usuario.get().getSenha());
