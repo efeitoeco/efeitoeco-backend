@@ -1,6 +1,7 @@
 package com.efeitoeco.eCommerce.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,8 +15,12 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.efeitoeco.eCommerce.controller.request.ProdutoRequest;
 import com.efeitoeco.eCommerce.model.Produto;
+import com.efeitoeco.eCommerce.model.Usuario;
 import com.efeitoeco.eCommerce.repository.ProdutoRepository;
+import com.efeitoeco.eCommerce.repository.UsuarioRepository;
 
 @RestController
 @RequestMapping("/produtos")
@@ -24,6 +29,9 @@ public class ProdutoController {
 	
 	@Autowired
 	private ProdutoRepository repository;
+
+	@Autowired
+	private UsuarioRepository usuarioRepository;
 	
 	@GetMapping
 	public ResponseEntity<List<Produto>> getAll() {
@@ -42,7 +50,24 @@ public class ProdutoController {
 	}
 
 	@PostMapping
-	public ResponseEntity<Produto> post(@RequestBody Produto produto) {
+	public ResponseEntity<Produto> post(@RequestBody ProdutoRequest produtoRequest) {
+		
+		Produto produto = new Produto();
+		
+		produto.setDescricao(produtoRequest.getDescricao());
+		produto.setImagem1(produtoRequest.getImagem1());
+		produto.setImagem2(produtoRequest.getImagem2());
+		produto.setPreco(produtoRequest.getPreco());
+		produto.setNome(produtoRequest.getNome());
+		produto.setCategoria(produtoRequest.getCategoria());
+		
+		Optional<Usuario> usuarioOptional = usuarioRepository.findById(produtoRequest.getIdDoUsuario());
+		
+		if (usuarioOptional.isEmpty())
+			throw new RuntimeException("O usuário de id " + produtoRequest.getIdDoUsuario() + " não existe");
+		
+		produto.setCriadoPor(usuarioOptional.get());
+		
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(produto));
 	}
 	

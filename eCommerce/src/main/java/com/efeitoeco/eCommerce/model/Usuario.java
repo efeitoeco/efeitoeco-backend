@@ -47,6 +47,7 @@ public class Usuario {
 	private String foto;
 	
 	@OneToMany(mappedBy = "criadoPor", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	//@JoinColumn(name = "vendedor")
 	@JsonIgnoreProperties("criadoPor")
 	private List<Produto> produtosVenda = new ArrayList<>();
 	
