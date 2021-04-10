@@ -35,7 +35,7 @@ public class UsuarioService {
 		Optional<Usuario> usuarioOptional = repository.findByEmail(usuario.getEmail());
 		
 		if(usuarioOptional.isPresent()) {
-			throw new RuntimeException("O email " + usuario.getEmail() + " já cadastrado!");
+			throw new RuntimeException("E-mail " + usuario.getEmail() + " já cadastrado.");
 		}
 		
 	}
