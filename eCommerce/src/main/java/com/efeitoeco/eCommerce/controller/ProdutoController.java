@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.efeitoeco.eCommerce.controller.request.ProdutoRequest;
+import com.efeitoeco.eCommerce.controller.request.ProdutoUpdate;
 import com.efeitoeco.eCommerce.model.Produto;
 import com.efeitoeco.eCommerce.model.Usuario;
 import com.efeitoeco.eCommerce.repository.ProdutoRepository;
@@ -72,8 +73,30 @@ public class ProdutoController {
 	}
 	
 	@PutMapping
-	public ResponseEntity<Produto> put(@RequestBody Produto produto) {
-		return ResponseEntity.status(HttpStatus.OK).body(repository.save(produto));
+	public ResponseEntity<Produto> put(@RequestBody ProdutoUpdate produtoUpdate) {
+		
+		Produto produto = new Produto();
+		
+		produto.setId(produtoUpdate.getId());
+		produto.setDescricao(produtoUpdate.getDescricao());
+		produto.setImagem1(produtoUpdate.getImagem1());
+		produto.setImagem2(produtoUpdate.getImagem2());
+		produto.setPreco(produtoUpdate.getPreco());
+		produto.setNome(produtoUpdate.getNome());
+		produto.setCategoria(produtoUpdate.getCategoria());
+		
+		Optional<Usuario> usuarioOptional = usuarioRepository.findById(produtoUpdate.getIdDoUsuario());
+		
+		if (usuarioOptional.isEmpty())
+			throw new RuntimeException("O usuário de id " + produtoUpdate.getIdDoUsuario() + " não existe");
+		
+		produto.setCriadoPor(usuarioOptional.get());
+		
+		//try {
+			return ResponseEntity.status(HttpStatus.OK).body(repository.save(produto));
+		//} catch (Exception ex) {
+			//throw new RuntimeException("Id do produto: " + produto.getId() + "\nId do usuário: " + produto.getCriadoPor().getId());
+		//}
 	}
 	
 	@DeleteMapping("/{id}")
