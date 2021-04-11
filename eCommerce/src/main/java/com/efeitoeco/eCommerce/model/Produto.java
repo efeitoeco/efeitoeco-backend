@@ -44,8 +44,7 @@ public class Produto {
 	@NotNull
 	private Categoria categoria;
 	
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn(name = "vendedor")
+	@ManyToOne
 	@JsonIgnoreProperties({"produtosVenda", "minhasCompras", "senha"})
 	private Usuario criadoPor;
 	
