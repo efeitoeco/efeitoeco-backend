@@ -44,12 +44,11 @@ public class Produto {
 	@NotNull
 	private Categoria categoria;
 	
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn(name = "vendedor")
+	@ManyToOne
 	@JsonIgnoreProperties({"produtosVenda", "minhasCompras", "senha"})
 	private Usuario criadoPor;
 	
-	@ManyToMany(mappedBy = "minhasCompras", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@ManyToMany(mappedBy = "minhasCompras")
 	@JsonIgnoreProperties({"senha", "produtosVenda", "minhasCompras"})
 	private List<Usuario> cliente = new ArrayList<>();
 

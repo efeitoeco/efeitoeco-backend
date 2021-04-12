@@ -1,5 +1,6 @@
 package com.efeitoeco.eCommerce.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.validation.Valid;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.efeitoeco.eCommerce.controller.request.UsuarioUpdate;
 import com.efeitoeco.eCommerce.model.Categoria;
 import com.efeitoeco.eCommerce.model.Usuario;
 import com.efeitoeco.eCommerce.model.UsuarioLogin;
@@ -62,4 +64,17 @@ public class UsuarioController {
 		repository.deleteById(id);
 	}
 	
+	@PutMapping("/{id}")
+	public ResponseEntity<Usuario> atualizarUsuario(@RequestBody UsuarioUpdate usuarioUpdate, @PathVariable Long id) {
+		Usuario usuario = usuarioService.alterarUsuario(usuarioUpdate, id);
+		return ResponseEntity.status(HttpStatus.OK).body(repository.save(usuario));
+	}
+	
+	@PutMapping("/{usuarioId}/compras")
+	public ResponseEntity<Usuario> adicionarProdutosComprados(@RequestBody List<Long> idsDosProdutosComprados, @PathVariable Long usuarioId) {
+		
+		Usuario usuario = usuarioService.adicionarProdutosComprados(usuarioId, idsDosProdutosComprados);
+		
+		return ResponseEntity.status(HttpStatus.OK).body(repository.save(usuario));
+	}
 }
