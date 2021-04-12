@@ -1,22 +1,14 @@
 package com.efeitoeco.eCommerce.controller.request;
 
+import javax.validation.constraints.NotNull;
+
 public class UsuarioUpdate {
 
-	private long id;
-	
 	private String nome;
 	
 	private String sobrenome;
-	
+		
 	private String foto;
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
 
 	public String getNome() {
 		return nome;
