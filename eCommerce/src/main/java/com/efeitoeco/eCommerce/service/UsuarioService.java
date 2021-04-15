@@ -3,6 +3,8 @@ package com.efeitoeco.eCommerce.service;
 import java.nio.charset.Charset;
 import java.util.List;
 import java.util.Optional;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +31,8 @@ public class UsuarioService {
 		
 		validarCadastroDuplicado(usuario);
 		
+		validarEmailInvalido(usuario.getEmail());
+		
 		String senhaCodificada = codificarSenha(usuario.getSenha());
 		
 		usuario.setSenha(senhaCodificada);
@@ -44,6 +48,15 @@ public class UsuarioService {
 			throw new RuntimeException("E-mail " + usuario.getEmail() + " já cadastrado.");
 		}
 		
+	}
+	
+	public void validarEmailInvalido(String email) {
+		String emailRegex = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
+		Pattern emailPat = Pattern.compile(emailRegex,Pattern.CASE_INSENSITIVE);
+		Matcher matcher = emailPat.matcher(email);
+		if(matcher.find() == false) {
+			throw new RuntimeException("E-mail inválido.");
+		}
 	}
 	
 	public Optional<UsuarioLogin> logar(Optional<UsuarioLogin> user) {
