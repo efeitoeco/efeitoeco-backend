@@ -1,16 +1,29 @@
 package com.efeitoeco.eCommerce.model;
 
 public class UsuarioLogin {
+	
+	private long id;
 
 	private String nome;
 	
-	private String usuario;
-	
+	private String sobrenome;
+		
 	private String email;
 	
 	private String senha;
 	
+	private String foto;
+	
 	private String token;
+	
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
 
 	public String getNome() {
 		return nome;
@@ -20,12 +33,12 @@ public class UsuarioLogin {
 		this.nome = nome;
 	}
 
-	public String getUsuario() {
-		return usuario;
+	public String getSobrenome() {
+		return sobrenome;
 	}
 
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
+	public void setSobrenome(String sobrenome) {
+		this.sobrenome = sobrenome;
 	}
 
 	public String getEmail() {
@@ -44,6 +57,14 @@ public class UsuarioLogin {
 		this.senha = senha;
 	}
 
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+
 	public String getToken() {
 		return token;
 	}
@@ -51,4 +72,6 @@ public class UsuarioLogin {
 	public void setToken(String token) {
 		this.token = token;
 	}
+
+
 }

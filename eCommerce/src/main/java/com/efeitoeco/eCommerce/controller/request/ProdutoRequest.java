@@ -1,65 +1,35 @@
-package com.efeitoeco.eCommerce.model;
+package com.efeitoeco.eCommerce.controller.request;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import com.efeitoeco.eCommerce.model.Categoria;
+import com.efeitoeco.eCommerce.model.Usuario;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@Entity
-@Table (name = "tb_produto")
-public class Produto {
+public class ProdutoRequest {
 	
-	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	private long id; 
-	
-	@NotNull
 	private String nome;
 	
-	@NotNull
 	private String descricao;
 	
-	@NotNull
 	private double preco;
 	
-	@NotNull
 	private String imagem1;
 	
 	private String imagem2;
 	
-	@ManyToOne
-	@JsonIgnoreProperties ("produto")
-	@NotNull
 	private Categoria categoria;
 	
-	@ManyToOne
-	@JsonIgnoreProperties({"produtosVenda", "minhasCompras", "senha"})
-	private Usuario criadoPor;
+	private Long idDoUsuario;
 	
-	@ManyToMany(mappedBy = "minhasCompras")
-	@JsonIgnoreProperties({"senha", "produtosVenda", "minhasCompras"})
-	private List<Usuario> cliente = new ArrayList<>();
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
 	public String getNome() {
 		return nome;
 	}
@@ -108,20 +78,14 @@ public class Produto {
 		this.categoria = categoria;
 	}
 
-	public Usuario getCriadoPor() {
-		return criadoPor;
+	public Long getIdDoUsuario() {
+		return idDoUsuario;
 	}
 
-	public void setCriadoPor(Usuario criadoPor) {
-		this.criadoPor = criadoPor;
+	public void setIdDoUsuario(Long idDoUsuario) {
+		this.idDoUsuario = idDoUsuario;
 	}
-
-	public List<Usuario> getCliente() {
-		return cliente;
-	}
-
-	public void setCliente(List<Usuario> cliente) {
-		this.cliente = cliente;
-	}
+	
+	
 
 }

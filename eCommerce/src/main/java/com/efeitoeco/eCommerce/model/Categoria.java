@@ -25,24 +25,11 @@ public class Categoria {
 	@NotNull
 	@Size(min = 3, max = 20, message = "Aviso: O valor mínimo de caracteres é de 3, e o valor máximo é de 20!")
 	private String nome;
-	
-	@NotNull
-	@Size(min = 3, max = 45, message = "Aviso: O valor mínimo de caracteres é de 3, e o valor máximo é de 45!")
-	private String composicao;
-	
-	@NotNull
-	@Size(min = 3, max = 155, message = "Aviso: O valor mínimo de caracteres é de 3, e o valor máximo é de 155!")
-	private String descricao;
-	
-	@NotNull
-	@Size(min = 3, max = 20, message = "Aviso: O valor mínimo de caracteres é de 3, e o valor máximo é de 20!")
-	private String publico;
 
 	@OneToMany (mappedBy = "categoria",cascade = CascadeType.ALL)
 	@JsonIgnoreProperties ("categoria")
 	private List<Produto> produto;
-	
-	
+
 	public long getId() {
 		return id;
 	}
@@ -59,30 +46,6 @@ public class Categoria {
 		this.nome = nome;
 	}
 
-	public String getComposicao() {
-		return composicao;
-	}
-
-	public void setComposicao(String composicao) {
-		this.composicao = composicao;
-	}
-
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
-
-	public String getPublico() {
-		return publico;
-	}
-
-	public void setPublico(String publico) {
-		this.publico = publico;
-	}
-
 	public List<Produto> getProduto() {
 		return produto;
 	}
@@ -90,4 +53,5 @@ public class Categoria {
 	public void setProduto(List<Produto> produto) {
 		this.produto = produto;
 	}
+	
 }
