@@ -1,5 +1,5 @@
 
 <h2 align="center">
-🍃 Efeito Eco 🍃 🚧 Em construção 🚧
+🍃 Efeito Eco 🍃 
   
   <!--# generation-ProjetoFinal-Ecommerce-->
